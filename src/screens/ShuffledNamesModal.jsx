@@ -6,23 +6,6 @@ import {useNameList} from './NamesListContext';
 
 
 const ShuffledNamesModal = ({ state, closeModal }) => {
-    // const { state } = useNameList();
-    // const names = state.shuffledNames;
-//   const [isModalVisible, setIsModalVisible] = useState(false);
-//   const toggleModal = () => {
-//     setIsModalVisible(!isModalVisible);
-//   };
-//   const isTwoColumns = state.shuffledNames.length > 4; // Show two columns if there are more than 4 names
-
-//   const renderItem = ({item, index}) => {
-//     // Alternate background color for every other row
-//     const backgroundColor = index % 2 === 0 ? '#f0f0f0' : '#dcdcdc'; // Light gray shades
-//     return (
-//       <View style={[styles.nameItem, {backgroundColor}]}>
-//         <Text style={styles.nameText}>{item}</Text>
-//       </View>
-//     );
-    //   };
      const minCols = 2;
 
    const calcNumColumns = width => {
@@ -78,26 +61,7 @@ const ShuffledNamesModal = ({ state, closeModal }) => {
           {/* Display shuffled names or a message */}
           <Text style={styles.modalText}>
             Shuffled Names:
-            {/* {state.shuffledNames.length > 0
-                ? state.shuffledNames.join(', ')
-                : 'No names shuffled'} */}
           </Text>
-          {/* FlatList renders names */}
-          {/* <FlatList
-            data={state.shuffledNames}
-            keyExtractor={(item, index) => index.toString()}
-            numColumns={isTwoColumns ? 2 : 1} // Switch between 1 and 2 columns
-            renderItem={renderItem}
-            contentContainerStyle={styles.flatListContainer}
-          /> */}
-          {/* <FlatList //--------------------------------------->using this flatlist
-              data={state.shuffledNames}
-              keyExtractor={({item}, index) => index.toString()}
-              renderItem={renderItem}
-              horizontal={false}
-              numColumns={2}
-            /> */}
-
           <FlatList
             keyExtractor={({item}, index) => index.toString()}
             data={state.shuffledNames}

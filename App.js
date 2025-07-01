@@ -6,7 +6,6 @@
  */
 
 import React, { useEffect } from 'react';
-// import type {PropsWithChildren} from 'react';
 import {
   StyleSheet,
   Text,
@@ -20,7 +19,6 @@ import RNBootSplash from 'react-native-bootsplash';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NameListProvider } from './src/context/NamesListContext';
 import NamesList from './src/screens/PlayerSetupScreen';
-import TestPage from './src/components/testFile';
 import ShuffledNamesModal from './src/screens/ShuffledNamesModal';
 import CreateGroups from './src/screens/CreateGroups';
 import AssignCharactersScreen from './src/screens/AssignCharactersScreen';
@@ -82,8 +80,6 @@ function App() {
               options={{ header: () => null }}
             />
             <Stack.Screen name="PlayerSetup" component={NamesList} />
-
-            <Stack.Screen name="TestPage" component={TestPage} />
             <Stack.Screen
               name="ShuffledNamesModal"
               component={ShuffledNamesModal}

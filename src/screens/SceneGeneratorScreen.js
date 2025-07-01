@@ -94,18 +94,6 @@ useEffect(() => {
           keyExtractor={(_, index) => index.toString()}
           contentContainerStyle={styles.grid}
           renderItem={({item}) => (
-            // <TouchableOpacity
-            //   style={styles.card}
-            //   onPress={() => openRoleModal(item.role)}>
-            //   <Text style={styles.name}>{item.name}</Text>
-            //   <Text style={styles.icon}>{item.role.icon}</Text>
-            //   <Text
-            //     numberOfLines={2}
-            //     ellipsizeMode="tail"
-            //     style={styles.roleName}>
-            //     {item.role.name}
-            //   </Text>
-            // </TouchableOpacity>
             <RoleCard
               name={item.name}
               role={item.role}

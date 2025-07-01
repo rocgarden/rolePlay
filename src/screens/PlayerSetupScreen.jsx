@@ -14,32 +14,6 @@ import NameInput from "../components/NameInput";
 import { SafeAreaView } from "react-native-safe-area-context";
 // import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 
-// function Section({children, title}) {
-//   const isDarkMode = useColorScheme() === 'dark';
-//   return (
-//     <View style={styles.sectionContainer}>
-//       <Text
-//         style={[
-//           styles.sectionTitle,
-//           {color: isDarkMode ? Colors.white : Colors.black},
-//         ]}>
-//         {title}
-//       </Text>
-
-//       {typeof children === 'string' || typeof children === 'number' ? (
-//         <Text
-//           style={[
-//             styles.sectionDescription,
-//             {color: isDarkMode ? Colors.light : Colors.dark},
-//           ]}>
-//           {children}
-//         </Text>
-//       ) : (
-//         <View>{children}</View>
-//       )}
-//     </View>
-//   );
-// }
 const modeRoutes = {
   assignCharacters: 'AssignCharactersScreen',
   sceneGenerator: 'SceneGeneratorScreen',

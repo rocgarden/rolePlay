@@ -112,8 +112,6 @@ const assignRoles = (_, rolesSource) => {
 
   const renderAssignment = ({item}) => (
     <View style={styles.card}>
-      {/* <Text style={styles.name}>{item.name}</Text>
-      <Text style={styles.role}>{item.role}</Text> */}
       <RoleCard
         name={item.name}
         role={item.role}

@@ -59,15 +59,6 @@ const DuelModeScreen = () => {
         ) : (
           <View style={styles.cardContainer}>
             {duelers.map((dueler, index) => (
-              // <View
-              //   key={index}
-              //   style={styles.card}>
-              //   <Text style={styles.name}>{dueler.name}</Text>
-              //   <Text
-              //     style={styles.role}>
-              //     {dueler.role}
-              //   </Text>
-              // </View>
               <RoleCard
                 key={index}
                 name={dueler.name}
