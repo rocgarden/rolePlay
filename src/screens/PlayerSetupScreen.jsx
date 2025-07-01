@@ -7,6 +7,9 @@ import {
   TouchableOpacity,
   StyleSheet,
   useColorScheme,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView
 } from 'react-native';
 import OrderedNameList from "../components/OrderedNameList";
 import { useNameList } from "../context/NamesListContext";
@@ -48,55 +51,60 @@ const NamesList = () => {
       .replace(/^./, str => str.toUpperCase());
   };
 
-  return (
-    <SafeAreaView style={styles.screenView}>
-      <View style={styles.contentContainer}>
-        <Text style={styles.emoji}>📋</Text>
-        <Text style={styles.sceneTitle}>Create List</Text>
-        {state.names.length === 0 ? (
-          <Text style={styles.subText}>
-            Add each player's name below to get started 🎉
-          </Text>
-        ) : null}
+ return (
+   <SafeAreaView style={styles.screenView}>
+     <KeyboardAvoidingView
+       style={{ flex: 1 }}
+       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+       keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
+     >
+       {/* <ScrollView
+         contentContainerStyle={{ flexGrow: 1 }}
+         keyboardShouldPersistTaps="handled"
+       > */}
+         <View style={styles.contentContainer}>
+           <Text style={styles.emoji}>📋</Text>
+           <Text style={styles.sceneTitle}>Create List</Text>
+           {state.names.length === 0 && (
+             <Text style={styles.subText}>
+               Add each player's name below to get started 🎉
+             </Text>
+           )}
 
-        <View style={styles.headerContainer}>
-          <View style={styles.separator}>
-            {state.names.length === 0 ? null : (
-              <Text style={styles.highlight}>Tap Name to Delete</Text>
-            )}
-          </View>
-          <OrderedNameList
-            names={state.names}
-            handleDeleteName={handleDeleteName}
-          />
-          <NameInput
-            name={name}
-            setName={setName}
-            handleAddName={handleAddName}
-          />
-        </View>
-        <TouchableOpacity
-          style={[
-            styles.customButton,
-            state.names.length === 0 && {opacity: 0.5},
-          ]}
-          onPress={handleContinue}
-          disabled={state.names.length === 0}>
-          <Text style={styles.customButtonText}>
-            {`${formatGameMode(state.gameMode)} ➡️`}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      {/* 🟨 Reserve space for banner ad */}
-      {/* <BannerAd
-        unitId={TestIds.BANNER}
-        size={BannerAdSize.SMART_BANNER}
-        requestOptions={{ requestNonPersonalizedAdsOnly: true }}
-      /> */}
-      {/* Spacer if ad is not active */}
-      {/* <View style={{height: 60}} /> */}
-    </SafeAreaView>
-  );
+           <View style={styles.headerContainer}>
+             <View style={styles.separator}>
+               {state.names.length > 0 && (
+                 <Text style={styles.highlight}>Tap Name to Delete</Text>
+               )}
+             </View>
+             <OrderedNameList
+               names={state.names}
+               handleDeleteName={handleDeleteName}
+             />
+             <NameInput
+               name={name}
+               setName={setName}
+               handleAddName={handleAddName}
+             />
+           </View>
+
+           <TouchableOpacity
+             style={[
+               styles.customButton,
+               state.names.length === 0 && { opacity: 0.5 },
+             ]}
+             onPress={handleContinue}
+             disabled={state.names.length === 0}
+           >
+             <Text style={styles.customButtonText}>
+               {`${formatGameMode(state.gameMode)} ➡️`}
+             </Text>
+           </TouchableOpacity>
+         </View>
+       {/* </ScrollView> */}
+     </KeyboardAvoidingView>
+   </SafeAreaView>
+ );
 };
 
 const styles = StyleSheet.create({
@@ -187,3 +195,29 @@ const styles = StyleSheet.create({
 });
 
 export default NamesList;
+
+
+
+
+
+
+
+
+
+
+  {
+    /* 🟨 Reserve space for banner ad */
+  }
+  {
+    /* <BannerAd
+        unitId={TestIds.BANNER}
+        size={BannerAdSize.SMART_BANNER}
+        requestOptions={{ requestNonPersonalizedAdsOnly: true }}
+      /> */
+  }
+  {
+    /* Spacer if ad is not active */
+  }
+  {
+    /* <View style={{height: 60}} /> */
+  }

@@ -63,7 +63,7 @@ export default AnimatedNameItem;
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#fdcb6e',
+    backgroundColor: '#fd79a8',
     padding: 16,
     marginHorizontal: 10,
     marginVertical: 8,
